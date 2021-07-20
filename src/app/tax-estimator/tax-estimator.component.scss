@@ -1,0 +1,31 @@
+mat-label {
+    font-size: 18px;
+}
+
+mat-hint {
+    font-size: 14px;
+}
+
+button {
+    font-size: 18px;
+    height: 50px;
+    width: 100%;
+}
+
+.mat-form-field {
+    width: 100%;
+}
+
+input[type="number"] {
+    text-align: right;
+    font-size: 18px;
+}
+
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+    display: none !important;
+}
+
+.tax-estimate {
+    font-size: 20px;
+}

@@ -1,0 +1,64 @@
+<div class="container p-4">
+    <div class="row">
+        <div class="col-sm-12 text-center page-title">
+            Tax Estimator
+        </div>
+    </div>
+    <form class="pt-5" autocomplete="off" [formGroup]="taxForm">
+        <div class="row pt-3 justify-content-center">
+            <div class="col-sm-4">
+                <mat-form-field appearance="standard">
+                    <mat-label>Income</mat-label>
+                    <input type="number" matInput placeholder="Ex. 30000" formControlName="income">
+                    <mat-hint>If more than one income, enter total combined income.</mat-hint>
+                </mat-form-field>
+            </div>
+        </div>
+        <div class="row pt-4 justify-content-center">
+            <div class="col-sm-4">
+                <mat-form-field appearance="standard">
+                    <mat-label># of Children</mat-label>
+                    <input type="number" matInput placeholder="Ex. 2" formControlName="numChildren">
+                    <mat-hint>Enter the # of children in your household under 18.</mat-hint>
+                </mat-form-field>
+            </div>
+        </div>
+        <div class="row pt-4 justify-content-center">
+            <div class="col-sm-4">
+                <mat-form-field appearance="standard">
+                    <mat-label># of Parents</mat-label>
+                    <input type="number" matInput placeholder="Ex. 2" formControlName="numParents">
+                    <mat-hint>Enter the # of parents in your household 60 and over.</mat-hint>
+                </mat-form-field>
+            </div>
+        </div>
+        <div class="row pt-5 justify-content-center">
+            <div class="col-sm-2 text-center">
+                <button mat-raised-button id="submit-btn" color="primary" type="button" (click)="calculate()" [disabled]="!taxForm.valid">
+                    <mat-icon>calculate</mat-icon>
+                    <span> SUBMIT</span>
+                </button>
+            </div>
+        </div>
+    </form>
+    <div class="row pt-5 justify-content-start">
+        <div class="col-sm-4 offset-sm-4 d-flex tax-estimate">
+            <div class="me-auto">Base tax: </div>{{taxBreakdown.incomeTax | currency}}
+        </div>
+    </div>
+    <div class="row pt-2 justify-content-start">
+        <div class="col-sm-4 offset-sm-4 d-flex tax-estimate">
+            <span class="me-auto">Total exemptions: </span>{{taxBreakdown.exemptions | currency}}
+        </div>
+    </div>
+    <div class="row pt-2 justify-content-start">
+        <div class="col-sm-4 offset-sm-4">
+            <mat-divider></mat-divider>
+        </div>
+    </div>
+    <div class="row pt-2 justify-content-start">
+        <div class="col-sm-4 offset-sm-4 d-flex tax-estimate">
+            <span class="me-auto">Tax due/Refund: </span>{{taxBreakdown.taxAfterExemptions | currency}}
+        </div>
+    </div>
+</div>
